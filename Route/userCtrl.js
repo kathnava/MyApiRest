@@ -1,6 +1,7 @@
 var models =require('../models');
 var asyncLib =require('async');
 var bcrypt = require('bcrypt');
+var  http = require ('http');
 
 module.exports= {
     adduser:(req,res)=>{
@@ -114,10 +115,11 @@ module.exports= {
 },
 
     PutUser: ( req, res) => {
-    let nom : req.body.nom;
-    let prenom: req.body.prenom;
-    let email: req.body.email;
-    let role: req.body.role;
+    let nom = req.body.nom;
+    let prenom = req.body.prenom;
+    let email = req.body.email;
+    let role = req.body.role;
+    var userId = req.params.id;
 
     asyncLib.waterfall([
         (done) => {

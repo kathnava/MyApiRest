@@ -10,7 +10,7 @@ exports.router = (()=> {
 
     //Pizza routes
     apiRouter.route('/add').post(userCtrl.adduser)
-    apiRouter.route('/put').put(userCtrl.PutUser)
+    apiRouter.route('/put/:id').put(userCtrl.PutUser)
     apiRouter.route('getUser/:id').get(userCtrl.getUser)
     apiRouter.route('/getAll').get(userCtrl.getAllUsers)
     apiRouter.route('/:id').delete(userCtrl.Deleteuser)
