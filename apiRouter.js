@@ -1,8 +1,8 @@
 var express = require('express');
 const user = require('./models/user');
-const {getUser} = require('./Route/userCtrl');
-const {getAllUser} = require('./Route/userCtrl');
-var userCtrl = require('./Route/userCtrl');
+const getUser = require('./Route/userCtrl');
+const getAllUsers = require('./Route/userCtrl');
+var userCtrl = require('./Route/userCtrl')
 
 //Router
 exports.router = (()=> {
@@ -13,11 +13,8 @@ exports.router = (()=> {
     apiRouter.route('/put/:id').put(userCtrl.PutUser)
     apiRouter.route('getUser/:id').get(userCtrl.getUser)
     apiRouter.route('/getAll').get(userCtrl.getAllUsers)
-    apiRouter.route('/:id').delete(userCtrl.Deleteuser)
-
-    // apiRouter.route('/pizzas/getPizza/').get(pizzaCtrl.getPizza)
-    // apiRouter.route('/pizzas/getAllPizza/').get(pizzaCtrl.getAllPizza)
-    // apiRouter.route('/pizzas/updatePizza/').put(pizzaCtrl.updatePizza)
-    // apiRouter.route('/pizzas/deletePizza/').delete(pizzaCtrl.deletePizza
+    apiRouter.route('/:id').delete(userCtrl.deleteUser)
+    apiRouter.route('/me').get(userCtrl.getUserMe);
+    apiRouter.route('/login/').post(userCtrl.login)
     return apiRouter;
 })();
